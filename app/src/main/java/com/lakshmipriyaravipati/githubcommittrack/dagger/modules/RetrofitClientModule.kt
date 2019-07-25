@@ -10,7 +10,7 @@ import javax.inject.Singleton
 @Module
 class RetrofitClientModule {
     private val BASE_URL: String
-        get() = "https://api.github.com/"
+        get() = "https://api.github.com/repos/lakshmipriya44/"
 
     @Provides
     @Singleton
