@@ -3,4 +3,5 @@
     <string name="username">User Name</string>
     <string name="commit_header">Commit:</string>
     <string name="recent_commits_header">Recent Commits</string>
+    <string name="something_wrong">Something went wrong could not connect to server</string>
 </resources>

@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable name="commitListViewModel"
                   type="com.lakshmipriyaravipati.githubcommittrack.viewmodels.GitHubCommitListViewModel"/>
         <import type="androidx.recyclerview.widget.RecyclerView"/>
+        <import type="android.view.View"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/design_default_color_primary"
             tools:context=".activities.GitHubCommitListActivity">
 
         <TextView
@@ -20,11 +21,25 @@
                 android:layout_height="wrap_content"
                 android:text="@string/recent_commits_header"
                 android:textSize="@dimen/header_font"
+                android:textColor="@color/white"
                 android:textStyle="bold"
                 android:fontFamily="sans-serif"
                 app:layout_constraintStart_toStartOf="@id/guideline_left"
                 app:layout_constraintEnd_toEndOf="@id/guideline_right"
                 app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+                android:id="@+id/error"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/something_wrong"
+                android:textSize="@dimen/medium_font"
+                android:textColor="@color/white"
+                android:fontFamily="sans-serif"
+                android:visibility="@{commitListViewModel.isError? View.VISIBLE:View.GONE}"
+                app:layout_constraintStart_toStartOf="@id/guideline_left"
+                app:layout_constraintEnd_toEndOf="@id/guideline_right"
+                app:layout_constraintTop_toBottomOf="@+id/header"/>
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view"
@@ -33,7 +48,6 @@
                 android:layout_marginTop="@dimen/margin_lg"
                 android:adapter="@{commitListViewModel.itemsAdapter}"
                 app:layoutManager="@{RecyclerView.VERTICAL}"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 app:layout_constraintTop_toBottomOf="@+id/header"/>
 
         <androidx.constraintlayout.widget.Guideline

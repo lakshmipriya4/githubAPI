@@ -8,4 +8,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    //header style
+    <style name="ItemTextFont" parent="TextAppearance.AppCompat.Headline">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/design_default_color_primary</item>
+    </style>
+
 </resources>

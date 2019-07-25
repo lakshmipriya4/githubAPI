@@ -19,9 +19,10 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
                 android:elevation="4dp"
+                app:cardCornerRadius="6dp"
                 app:layout_constraintEnd_toEndOf="@id/guideline_right"
                 app:layout_constraintStart_toStartOf="@+id/guideline_left"
-                android:backgroundTint="@color/colorPrimary">
+                android:backgroundTint="@color/white">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -33,12 +34,13 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/card_view_content_margin"
                         android:textStyle="bold"
+                        android:textAllCaps="true"
                         android:text="@{commitListItemViewModel.userName}"
                         android:textSize="@dimen/medium_font"
-                        android:textColor="@color/white"
+                        android:textAppearance="@style/ItemTextFont"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:text="@string/username"
-                        app:layout_constraintStart_toStartOf="@id/guideline_left_card"/>
+                        app:layout_constraintStart_toStartOf="@id/guideline_left_card"
+                        tools:text="@string/username"/>
 
                 <TextView
                         android:id="@+id/commit_hash"
@@ -46,18 +48,19 @@
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
                         android:layout_margin="@dimen/card_view_content_margin"
-                        android:textColor="@color/white"
+                        android:textAppearance="@style/ItemTextFont"
                         app:layout_constraintStart_toStartOf="@+id/guideline_left_card"
                         app:layout_constraintTop_toBottomOf="@+id/user_name"
                         android:text="@string/commit_header"
-                        android:textSize="@dimen/medium_font"/>
+                        android:textSize="@dimen/small_font"/>
 
                 <TextView
                         android:id="@+id/commit_hash_value"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/white"
                         android:layout_margin="@dimen/card_view_content_margin"
+                        android:textAppearance="@style/ItemTextFont"
+                        android:maxLines="1"
                         app:layout_constraintStart_toEndOf="@+id/commit_hash"
                         app:layout_constraintEnd_toEndOf="@id/guideline_right_card"
                         app:layout_constraintTop_toBottomOf="@+id/user_name"
@@ -68,10 +71,11 @@
                 <TextView
                         android:id="@+id/commit_message"
                         android:layout_width="0dp"
-                        android:textColor="@color/white"
                         android:layout_height="wrap_content"
+                        android:textAppearance="@style/ItemTextFont"
                         android:textSize="@dimen/small_font"
                         android:layout_margin="@dimen/card_view_content_margin"
+                        android:maxLines="4"
                         android:text="@{commitListItemViewModel.commitMessage}"
                         app:layout_constraintStart_toStartOf="@id/guideline_left_card"
                         app:layout_constraintTop_toBottomOf="@id/commit_hash"
