@@ -10,11 +10,11 @@ import javax.inject.Singleton
 @Module
 class RetrofitClientModule {
     private val BASE_URL: String
-        get() = "https://api.github.com/repos/lakshmipriya44/"
+        get() = "https://api.github.com/repos/"
 
     @Provides
     @Singleton
-    internal fun retrofitInstace() : Retrofit{
+    internal fun retrofitInstace(): Retrofit {
         retrofit = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -23,7 +23,7 @@ class RetrofitClientModule {
         return retrofit
     }
 
-    companion object{
+    companion object {
         lateinit var retrofit: Retrofit
     }
 }

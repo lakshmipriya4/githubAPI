@@ -6,6 +6,6 @@ import retrofit2.http.Path
 
 interface CommitService {
 
-    @GET("{projectName}/commits") //Hello-World/commits
-    fun getCommits(@Path("projectName") projectName:String) : Single<List<CommitListResponse>>
+    @GET("{repoName}/{projectName}/commits")
+    fun getCommits(@Path("repoName") repoName: String, @Path("projectName") projectName: String): Single<List<CommitListResponse>>
 }

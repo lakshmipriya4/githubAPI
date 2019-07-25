@@ -19,5 +19,6 @@ class GitHubCommitListActivity : AppCompatActivity() {
         AndroidInjection.inject(this)
         val binding = DataBindingUtil.setContentView<ActivityGithubCommitListBinding>(this, R.layout.activity_github_commit_list)
         binding.commitListViewModel = gitHubCommitListViewModel
+        gitHubCommitListViewModel.getCommitList()
     }
 }

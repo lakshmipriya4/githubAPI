@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 class GitHubCommitListAdapter @Inject constructor() : RecyclerView.Adapter<GitHubCommitListItemViewHolder>() {
 
-    private val commitListItemViewModel = mutableListOf<GitHubCommitListItemViewModel>()
+    private var commitListItemViewModel = mutableListOf<GitHubCommitListItemViewModel>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GitHubCommitListItemViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -32,7 +32,8 @@ class GitHubCommitListAdapter @Inject constructor() : RecyclerView.Adapter<GitHu
         holder.bind(commitListItemViewModel[position])
     }
 
-    fun setViewModels(commitListItemViewModel: List<GitHubCommitListItemViewModel>) {
-        this.commitListItemViewModel.addAll(commitListItemViewModel)
+    fun setViewModels(commitListItemViewModel: MutableList<GitHubCommitListItemViewModel>) {
+        this.commitListItemViewModel = commitListItemViewModel
+        notifyDataSetChanged()
     }
 }
