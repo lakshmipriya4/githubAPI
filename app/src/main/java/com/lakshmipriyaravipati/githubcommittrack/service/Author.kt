@@ -1,4 +1,8 @@
 package com.lakshmipriyaravipati.githubcommittrack.service
 
-data class Author(val name : String) {
-}
+import com.google.gson.annotations.SerializedName
+
+data class Author(
+    @SerializedName("avatar_url")
+    val avatarUrl: String
+)

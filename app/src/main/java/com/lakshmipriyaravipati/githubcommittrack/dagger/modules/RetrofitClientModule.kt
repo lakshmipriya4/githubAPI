@@ -15,7 +15,7 @@ class RetrofitClientModule {
 
     @Provides
     @Singleton
-    internal fun retrofitInstace(): Retrofit {
+     fun retrofitInstace(): Retrofit {
         retrofit = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

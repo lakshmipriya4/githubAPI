@@ -28,6 +28,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/user_image"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:layout_constraintStart_toStartOf="@id/guideline_left_card"
+                        app:layout_constraintEnd_toStartOf="@id/user_name"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/commit_hash"
+                        bindImageUrl="@{commitListItemViewModel.imageUrl}"
+                        tools:src="@drawable/ic_launcher_foreground"/>
+
                 <TextView
                         android:id="@+id/user_name"
                         android:layout_width="0dp"
@@ -35,11 +46,12 @@
                         android:layout_margin="@dimen/card_view_content_margin"
                         android:textStyle="bold"
                         android:textAllCaps="true"
+                        android:layout_marginLeft="@dimen/margin_md"
                         android:text="@{commitListItemViewModel.userName}"
                         android:textSize="@dimen/medium_font"
                         android:textAppearance="@style/ItemTextFont"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="@id/guideline_left_card"
+                        app:layout_constraintStart_toEndOf="@id/user_image"
                         tools:text="@string/username"/>
 
                 <TextView
