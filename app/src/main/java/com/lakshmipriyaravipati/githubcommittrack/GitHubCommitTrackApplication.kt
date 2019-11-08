@@ -2,7 +2,6 @@ package com.lakshmipriyaravipati.githubcommittrack
 
 import android.app.Activity
 import android.app.Application
-import android.content.Context
 import com.remindme.dagger.DaggerApplicationComponent
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector

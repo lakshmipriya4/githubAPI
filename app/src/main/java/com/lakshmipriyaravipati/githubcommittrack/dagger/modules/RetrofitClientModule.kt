@@ -1,6 +1,5 @@
 package com.lakshmipriyaravipati.githubcommittrack.dagger.modules
 
-import com.lakshmipriyaravipati.githubcommittrack.service.CommitService
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -15,22 +14,12 @@ class RetrofitClientModule {
 
     @Provides
     @Singleton
-     fun retrofitInstace(): Retrofit {
-        retrofit = Retrofit.Builder()
+    fun providesRetrofit(): Retrofit {
+        return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .baseUrl(BASE_URL)
             .build()
-        return retrofit
     }
 
-    @Provides
-    @Singleton
-    fun providesCommitService(): CommitService {
-        return retrofitInstace().create(CommitService::class.java)
-    }
-
-    companion object {
-        lateinit var retrofit: Retrofit
-    }
 }
